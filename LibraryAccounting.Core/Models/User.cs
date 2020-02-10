@@ -1,6 +1,8 @@
-﻿namespace LibraryAccounting.Core.Models
+﻿using LibraryAccounting.Core.Interfaces;
+
+namespace LibraryAccounting.Core.Models
 {
-    public class User
+    public class User : IEntity
     {
         public int Id { get; set; }
         public string FullName { get; set; }

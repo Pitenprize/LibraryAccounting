@@ -2,21 +2,53 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="libraryclient\src\login\**" />
+    <Content Remove="libraryclient\src\login\**" />
+    <EmbeddedResource Remove="libraryclient\src\login\**" />
+    <None Remove="libraryclient\src\login\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="libraryclient\src\components\BookCard.tsx" />
+    <None Remove="libraryclient\src\components\BookList.tsx" />
+    <None Remove="libraryclient\src\components\Footer.tsx" />
+    <None Remove="libraryclient\src\components\Home.tsx" />
+    <None Remove="libraryclient\src\components\shared\SearchControl.tsx" />
+    <None Remove="libraryclient\src\components\shared\SidePanel.tsx" />
+    <None Remove="libraryclient\src\types\Book.ts" />
+    <None Remove="libraryclient\src\utils\MockLibrary.ts" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryAccounting.Core\LibraryAccounting.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="libraryclient\src\components\BookCard.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\BookList.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\Footer.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\shared\SearchControl.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\pages\Home.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\shared\Logo.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\NavBar.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\components\Layout.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\utils\MockLibrary.ts" />
+    <TypeScriptCompile Include="libraryclient\src\types\Book.ts" />
   </ItemGroup>
 
 </Project>

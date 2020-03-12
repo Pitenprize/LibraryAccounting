@@ -22,7 +22,7 @@ namespace LibraryAccounting.App
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddControllers();
             services.AddSpaStaticFiles(configoration => configoration.RootPath = "libraryclient/build");
 
             services.AddScoped<IRepositoryContextFactory, RepositoryContextFactory>();
@@ -39,24 +39,26 @@ namespace LibraryAccounting.App
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "DefaultApi",
+                    pattern: "api/{controller}/{action}/{id?}");
+            });
+
             app.UseSpaStaticFiles();
 
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = Path.Join(env.ContentRootPath, "libraryclient");
-
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
-            });
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "DefaultApi",
-                    template: "api/{controller}/{action}");
             });
         }
     }

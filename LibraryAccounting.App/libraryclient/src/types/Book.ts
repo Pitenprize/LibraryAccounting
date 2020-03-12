@@ -1,10 +1,11 @@
 ﻿export class Book {
     constructor(
-        public Name: string,
-        public Author: string,
-        public Publisher: string,
-        public PublicationYear: number,
-        public PageCount: number,
-        public Quantity: number
+        public id: number,
+        public name: string,
+        public author: string,
+        public publisher: string,
+        public publicationYear: number,
+        public pageCount: number,
+        public quantity: number
     ) { }
 }

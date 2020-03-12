@@ -1,8 +1,9 @@
 ﻿import React from 'react';
 import { SearchControl } from '../components/shared/SearchControl';
 import { BookList } from '../components/BookList';
-import { MockLibrary } from '../utils/MockLibrary';
 import { Book } from '../types/Book';
+import Constants from '../utils/Constants';
+import api from '../utils/Loader';
 
 export interface HomeState {
     books: Book[];
@@ -13,17 +14,18 @@ export class Home extends React.Component<{}, HomeState> {
         super(props);
 
         this.state = {
-            books: MockLibrary.getBooks()
+            books: new Array<Book>()
         };
     }
 
-    filterBooks(text: string) {
-        const filteredBookList = MockLibrary.getBooks().filter(book => {
-            return book.Name.toUpperCase().includes(text.toUpperCase());
-        });
+    componentDidMount() {
+        this.getBooks();
+    }
 
+    async getBooks() {
+        const data = await api<Book[]>(Constants.bookListApiUrl);
         this.setState({
-            books: filteredBookList
+            books: data
         });
     }
 
@@ -31,8 +33,9 @@ export class Home extends React.Component<{}, HomeState> {
         return (
             <main role='main'>
                 <h1 className='page-title'>Главная</h1>
-                <div className='layout-card'>
-                    <SearchControl placeholder='Поиск...' filter={this.filterBooks.bind(this)} />
+                <div className='layout-card form-group'>
+                    <SearchControl placeholder='Поиск...' />
+                    <button className='accent-btn '>НАЙТИ</button>
                 </div>
                 <BookList books={this.state.books} />
             </main>

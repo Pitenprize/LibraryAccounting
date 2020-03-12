@@ -3,7 +3,6 @@ import { MdSearch, MdClear } from "react-icons/md";
 
 export interface SearchControlProps {
     placeholder: string;
-    filter: Function
 }
 
 export interface SeacrchControlState {
@@ -23,11 +22,11 @@ export class SearchControl extends React.Component<SearchControlProps, SeacrchCo
 
     onTextChangedHandler(e: React.ChangeEvent<HTMLInputElement>) {
         const value: string = e.target.value;
+
         this.setState({
-            text: value,
+            text: value.trim(),
             resetBtnVisible: value.length > 0
         });
-        this.props.filter(value.trim());
     }
 
     onResetTextHandler() {
@@ -40,18 +39,18 @@ export class SearchControl extends React.Component<SearchControlProps, SeacrchCo
     render() {
         return (
             <div className='search-input-wrapper'>
-                <div className="icon-container">
+                <label className='icon-container' htmlFor='search-input'>
                     <MdSearch />
-                </div>
+                </label>
 
-                <input type='text' className='search-input'
+                <input type='text' className='search-input' id='search-input'
                     placeholder={this.props.placeholder}
                     onChange={e => this.onTextChangedHandler(e)}
                     value={this.state.text} />
 
                 <button className='transparent-btn circle'
                     onClick={this.onResetTextHandler.bind(this)}
-                    style={{ visibility: (this.state.resetBtnVisible ? 'visible' : 'hidden') }}>
+                    style={{ display: (this.state.resetBtnVisible ? 'inline-block' : 'none') }}>
                     <div className='icon-container'>
                         <MdClear />
                     </div>

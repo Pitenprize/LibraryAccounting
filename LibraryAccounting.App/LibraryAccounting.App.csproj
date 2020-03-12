@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -18,8 +18,10 @@
     <None Remove="libraryclient\src\components\Footer.tsx" />
     <None Remove="libraryclient\src\components\Home.tsx" />
     <None Remove="libraryclient\src\components\shared\SearchControl.tsx" />
-    <None Remove="libraryclient\src\components\shared\SidePanel.tsx" />
+    <None Remove="libraryclient\src\components\shared\Logo.tsx" />
     <None Remove="libraryclient\src\types\Book.ts" />
+    <None Remove="libraryclient\src\utils\Constants.ts" />
+    <None Remove="libraryclient\src\utils\Loader.ts" />
     <None Remove="libraryclient\src\utils\MockLibrary.ts" />
   </ItemGroup>
 
@@ -47,6 +49,8 @@
     <TypeScriptCompile Include="libraryclient\src\components\shared\Logo.tsx" />
     <TypeScriptCompile Include="libraryclient\src\components\NavBar.tsx" />
     <TypeScriptCompile Include="libraryclient\src\components\Layout.tsx" />
+    <TypeScriptCompile Include="libraryclient\src\utils\Constants.ts" />
+    <TypeScriptCompile Include="libraryclient\src\utils\Loader.ts" />
     <TypeScriptCompile Include="libraryclient\src\utils\MockLibrary.ts" />
     <TypeScriptCompile Include="libraryclient\src\types\Book.ts" />
   </ItemGroup>

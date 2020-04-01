@@ -26,9 +26,9 @@ namespace LibraryAccounting.App.Controllers
 
         [HttpGet]
         [Route("get/{id}")]
-        public async Task<Book> Get(int bookId)
+        public async Task<Book> Get(int id)
         {
-            return await this.bookRepository.GetById(bookId);
+            return await this.bookRepository.GetById(id);
         }
     }
 }

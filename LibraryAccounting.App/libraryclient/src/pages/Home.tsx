@@ -5,11 +5,11 @@ import { Book } from '../types/Book';
 import Constants from '../utils/Constants';
 import api from '../utils/Loader';
 
-export interface HomeState {
+export interface IHomeState {
     books: Book[];
 }
 
-export class Home extends React.Component<{}, HomeState> {
+export class Home extends React.Component<{}, IHomeState> {
     constructor(props: Readonly<{}>) {
         super(props);
 
@@ -35,7 +35,7 @@ export class Home extends React.Component<{}, HomeState> {
                 <h1 className='page-title'>Главная</h1>
                 <div className='layout-card form-group'>
                     <SearchControl placeholder='Поиск...' />
-                    <button className='accent-btn '>НАЙТИ</button>
+                    <button className='accent-btn'>НАЙТИ</button>
                 </div>
                 <BookList books={this.state.books} />
             </main>

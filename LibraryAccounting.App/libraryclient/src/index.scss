@@ -10,6 +10,7 @@ body {
     min-width: 320px;
     background: $primary-background-color;
     font-family: $primary-font;
+    color: $primary-text;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -49,6 +50,14 @@ button {
     margin: 8px 0px;
 }
 
+.book-details-title {
+    font-size: $extra-large-font-size;
+    font-weight: $bold;
+    color: $accent-color;
+    margin: 24px 0px;
+    text-align: center;
+}
+
 @mixin card {
     background: $secondary-background-color;
     border-radius: $border-radius;
@@ -63,6 +72,28 @@ button {
     padding: 8px 0px;
 }
 
+.description-card {
+    @include card;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    padding: 8px 12px;
+    margin: 12px 0px;
+
+    &:not(:last-child) {
+        margin-right: 12px;
+    }
+
+    .title {
+        font-size: $small-font-size;
+        color: $accent-color;
+    }
+
+    .description-text {
+        font-size: $normal-font-size;
+        margin: 0px;
+    }
+}
+
 .container {
     width: 100%;
     max-width: $layout-max-width;
@@ -71,10 +102,19 @@ button {
     padding: 0px 16px;
 }
 
-.wrapper {
+@mixin layout {
     display: flex;
-    flex-direction: column;
     min-height: 100%;
+}
+
+.column-layout {
+    @include layout;
+    flex-direction: column;
+}
+
+.row-layout {
+    @include layout;
+    flex-direction: row;
 }
 
 .header {
@@ -86,7 +126,7 @@ button {
 }
 
 .footer {
-    padding: 8px 12px;
+    padding: 4px 12px;
 }
 
 .form-group {
@@ -203,7 +243,7 @@ button {
     .search-input {
         flex-grow: 1;
         padding: 4px 8px;
-        min-width: 0px!important;
+        min-width: 0px !important;
         font-size: $small-font-size;
         font-weight: $normal;
         color: $primary-text;
@@ -230,6 +270,7 @@ input::-webkit-search-cancel-button {
     cursor: pointer;
     outline: none;
     border: none;
+    text-decoration: none;
     border-radius: $border-radius;
     padding: 2px;
     transition: color, background-color 0.15s ease-out;

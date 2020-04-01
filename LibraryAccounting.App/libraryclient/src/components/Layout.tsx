@@ -2,12 +2,12 @@
 import { NavBar } from './NavBar';
 import { Footer } from './Footer';
 
-export interface LayoutProps {
+export interface ILayoutProps {
     children: ReactNode;
 }
 
-export const Layout: FunctionComponent<LayoutProps> = props => (
-    <div className='wrapper'>
+export const Layout: FunctionComponent<ILayoutProps> = props => (
+    <div className='column-layout' id='main-container'>
         <NavBar />
         <div className='container'>
             {props.children}

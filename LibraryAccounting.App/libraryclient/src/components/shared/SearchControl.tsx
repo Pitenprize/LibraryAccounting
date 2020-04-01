@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { MdSearch, MdClear } from "react-icons/md";
 
-export interface SearchControlProps {
+export interface ISearchControlProps {
     placeholder: string;
 }
 
@@ -10,8 +10,8 @@ export interface SeacrchControlState {
     resetBtnVisible: boolean;
 }
 
-export class SearchControl extends React.Component<SearchControlProps, SeacrchControlState> {
-    constructor(props: SearchControlProps) {
+export class SearchControl extends React.Component<ISearchControlProps, SeacrchControlState> {
+    constructor(props: ISearchControlProps) {
         super(props);
 
         this.state = {

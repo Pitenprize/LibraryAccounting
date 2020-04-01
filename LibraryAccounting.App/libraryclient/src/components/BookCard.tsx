@@ -1,4 +1,5 @@
 ﻿import React, { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 import { Book } from '../types/Book';
 
 export interface IBookCardProps {
@@ -25,7 +26,7 @@ export const BookCard: FunctionComponent<IBookCardProps> = ({ book }) => (
             </div>
         </div>
         <div className='book-card-bottom'>
-            <button className='accent-btn'>ПОСМОТРЕТЬ</button>
+            <Link to={`/details/${book.id}`} className='accent-btn'>ПОСМОТРЕТЬ</Link>
         </div>
     </div>
 )
